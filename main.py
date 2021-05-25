@@ -1,6 +1,6 @@
 #
 # ダストセンサー動作検証
-# 2021-05-10  HIDEO Yamada
+# 2021-05-10  Hideo YAMADA
 #
 import os
 import math
