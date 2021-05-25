@@ -50,9 +50,12 @@ def get_dust(DPIN):
     t0 = utime.ticks_ms()
     t = 0
     ts = 30 *1000 # サンプリング時間(ms)
-    while(1):
+    while True:
         t = pulseIn(DPIN, ts)       # LOW状態の時間tを求める
-        if ((utime.ticks_ms() - t0) > ts):
+        if (t > ts):
+            print("Time over")
+            break
+        else:
             ratio = (100*t)/ts      # LOWの割合[0-100%]
             concent = 1.1 * pow(ratio,3) - 3.8 * pow(ratio,2) + 520 * ratio + 0.62  # ほこりの濃度を算出
             print(round(concent,2), "[pcs/0.01cf] / ", end="")
