@@ -1,6 +1,6 @@
 #
-# ダストセンサー動作検証
-# 2021-05-10  Hideo YAMADA
+# ダストセンサー動作検証 pi pico microPython
+# 2021-05-10  YAMATEC
 #
 import os
 import math
@@ -46,7 +46,7 @@ def pcs2ugm3(pcs):
     return pcs * K * mass25         # μg/m^3に変換して返す
 
 #ダスト計測
-def get_pm25(DPIN):
+def get_dust(DPIN):
     t0 = utime.ticks_ms()
     t = 0
     ts = 30 *1000 # サンプリング時間(ms)
@@ -69,5 +69,4 @@ while True:
 #    led.value(1)
 #    utime.sleep(1.0)
 #    led.value(0)
-
-    get_pm25(DPIN)
+    get_dust(DPIN)
