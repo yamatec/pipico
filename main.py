@@ -25,14 +25,13 @@ def pulseIn(DPIN, sampletime ):
     while utime.ticks_ms()-st < sampletime:
         t_start = 0
         t_end = 0
-        while dust.value() == end_pulse:
+        while (dust.value() == end_pulse):
             t_start = utime.ticks_ms()
-            led.value(0)
-        while dust.value() == start_pulse:
+        led.value(1)
+        while (dust.value() == start_pulse):
             t_end = utime.ticks_ms()
-            led.value(1)
         pulse_ttl += t_end - t_start
-    led.value(0)
+        led.value(0)
     return pulse_ttl
 
 #単位をμg/m3に変換
