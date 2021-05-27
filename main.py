@@ -25,10 +25,11 @@ def pulseIn(DPIN, sampletime ):
     while utime.ticks_ms()-st < sampletime:
         t_start = st
         t_end = st
-        while (dust.value() == end_pulse):
+        while (dust.value() == end_pulse) and (utime.ticks_ms()-st < sampletime):
             t_start = utime.ticks_ms()
         led.value(1)
-        while (dust.value() == start_pulse):
+        t_end = utime.ticks_ms()
+        while (dust.value() == start_pulse) and (utime.ticks_ms()-st < sampletime):
             t_end = utime.ticks_ms()
         pulse_ttl += t_end - t_start
         led.value(0)
