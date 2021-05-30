@@ -57,13 +57,13 @@ def get_dust(DPIN):
         else:
             ratio = (100*t)/ts      # LOWの割合[0-100%]
             concent = 1.1 * pow(ratio,3) - 3.8 * pow(ratio,2) + 520 * ratio + 0.62  # ほこりの濃度を算出
-            print(round(concent,2), "[pcs/0.01cf] / ", end="")
-            print(round(pcs2ugm3(concent),2), "[ug/m3] / ", end="")
+            print("Dust:", round(concent,2), "[pcs/0.01cf] / ", end="")
+            print("PM2.5:", round(pcs2ugm3(concent),2), "[ug/m3] / ", end="")
             print(t, "[msec] / ", end="")
             print(round(ratio,2), "[%] / ", end="")
             reading = sensor_temp.read_u16() * conversion_factor
             temperature = 27 - (reading - 0.706)/0.001721
-            print(round(temperature,2), "[*C]")
+            print("Temp:", round(temperature,2), "[*C]")
             break
 
 while True:
