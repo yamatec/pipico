@@ -11,7 +11,7 @@ led = Pin(25, Pin.OUT)
 sensor_temp = machine.ADC(4)
 conversion_factor = 3.3 / (65535)
 
-DPIN = 0
+DPIN = 22       #pi pico No.29 pin(GP22) , No.1 pin(GP0)
 dust = Pin(DPIN, Pin.IN)
 
 print("dust sense start")
